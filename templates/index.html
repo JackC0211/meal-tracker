@@ -16,16 +16,29 @@
 
   <body>
     <header class="heading">Welcome!</header>
-    <a href="http://127.0.0.1:5000/meal-maker">
+    <a href="http://127.0.0.1:5000/ingredient-maker">
       <button class="NavigationButton">About</button>
     </a>
 
-    <form action="/meal-maker" method="get" target="_self" autocomplete="off">
+    <form
+      action="/ingredient-maker"
+      method="get"
+      target="_self"
+      autocomplete="off"
+    >
       <br />
-      <button name="hello" class="NavigationButton">
-        New meal? Click me!
+      <button name="hello" class="NavigationButton">New ingredient? Click me!</button>
+    </form>
+    <form
+      action="/delete-ingredients"
+      method="post"
+      target="_self"
+      autocomplete="off"
+    >
+      <br />
+      <button name="delete" class="NavigationButton">
+        click to delete all meals
       </button>
-
     </form>
   </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css')}}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+      type="image/x-icon"
+    />
+
+    <title>Ingredient Maker</title>
+  </head>
+
+  <body>
+    <header class="heading">Ingredient maker</header>
+    <a href="http://127.0.0.1:5000/">
+      <button class="NavigationButton">Home</button>
+    </a>
+    <!-- prettier-ignore -->
+    <form action="/submitMakeIngredient" method="post" autocomplete="off" class="foodMacros" >
+      <br /><label>Ingredient name:</label>
+      <br /><input name="ingredient-name" type="text" required />
+
+      <br /><label>Calories (kcal):</label>
+      <br /><input name="calories" type="number" required />
+
+      <br /><label>Protein (g):</label>
+      <br /><input name="protein" type="number" required />
+
+      <br /><label>Carbs (g):</label>
+      <br /><input name="carbs" type="number" required />
+
+      <br /><label>Fats (g):</label>
+      <br /><input name="fats" type="number" required />
+
+      <br /><input type="submit" value="Submit"/>
+    </form>
+  </body>
+</html>
