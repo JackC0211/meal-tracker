@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect		# gets flask and templates
+from flask import Flask, render_template, request, redirect, url_for		# gets flask and templates
 import utils.ingredientDatabase
 app = Flask(__name__) # Creates a web page
 
@@ -20,12 +20,24 @@ def handleData():
 	fats = int(request.form.get('fats'))
 	utils.ingredientDatabase.main(
 		ingredientName,calories,protein,carbs,fats)
-	return f"<h1>Thank you for submitting {ingredientName}</h1>"
+	return redirect(url_for('index'))
 
 @app.route("/delete-ingredients", methods=['POST'])
 def deletetables():
 	utils.ingredientDatabase.deleteTable()
-	return render_template("index.html")
+	return redirect(url_for('index'))
+
+@app.route("/create-meal", methods = ['GET', 'POST'])
+def create_meal():
+	ingredients = utils.ingredientDatabase.get_all_ingredients()
+	return render_template("create_meal.html", ingredients=ingredients)
+
+@app.route("/add-ingredients-to-meal", methods = ['POST'])
+def add_ing_to_meal():
+	ingredient_id = request.form.get('ing_id')
+	return redirect(url_for('create_meal'))
+
+
 
 
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css')}}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+      type="image/x-icon"
+    />
+
+    <title>Meal Creator</title>
+  </head>
+
+
+	<body>
+		<form action="/add-ingredients-to-meal" method="post">
+			<label for="ingredient">Choose an ingredient:</label>
+			<select name="ing_id" id="ingredient">
+				{% for ingredient in ingredients %}
+					<option value="{{ ingredient[0] }}"> {{ingredient[1]}}</option>
+				{% endfor %}
+			</select>
+			<button type="submit"> Submit ingredient to meal</button>
+
+		</form>
+
+	</body>
