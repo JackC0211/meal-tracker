@@ -33,7 +33,7 @@ def create_meal():
 	return render_template("create_meal.html", ingredients=ingredients)
 
 @app.route("/add-ingredients-to-meal", methods = ['POST'])
-def add_ing_to_meal():
+def add_ingredient_to_meal():
 	ingredient_id = request.form.get('ing_id')
 	return redirect(url_for('create_meal'))
 

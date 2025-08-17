@@ -14,17 +14,24 @@
     <title>Meal Creator</title>
   </head>
 
+  <body>
+    <form action="/add-ingredients-to-meal" method="post">
+      <label for="ingredient">Choose an ingredient:</label>
+      <select name="ing_id" id="ingredient">
+        {% for ingredient in ingredients %}
+        <option value="{{ ingredient[0] }}">{{ingredient[1]}}</option>
+        {% endfor %}
+      </select>
 
-	<body>
-		<form action="/add-ingredients-to-meal" method="post">
-			<label for="ingredient">Choose an ingredient:</label>
-			<select name="ing_id" id="ingredient">
-				{% for ingredient in ingredients %}
-					<option value="{{ ingredient[0] }}"> {{ingredient[1]}}</option>
-				{% endfor %}
-			</select>
-			<button type="submit"> Submit ingredient to meal</button>
 
-		</form>
+      <button type="submit">Submit ingredient to meal</button>
 
-	</body>
+      <form action="/add-ingredients-to-meal" method="post" target="_blank">
+        <br />
+        <button name="addIngredient" class="NavigationButton">
+          Submit all ingredients to meal
+        </button>
+      </form>
+    </form>
+  </body>
+</html>
